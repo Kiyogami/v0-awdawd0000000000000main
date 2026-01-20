@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    
+    /* Primary Colors - Gold */
+    --primary: 45 93% 47%;
+    --primary-foreground: 0 0% 5%;
+    
+    /* Background - Dark */
+    --background: 0 0% 4%;
+    --foreground: 45 20% 95%;
+    
+    /* Card - Slightly lighter dark */
+    --card: 0 0% 7%;
+    --card-foreground: 45 20% 95%;
+    
+    /* Popover */
+    --popover: 0 0% 8%;
+    --popover-foreground: 45 20% 95%;
+    
+    /* Secondary - Muted Gold */
+    --secondary: 45 30% 15%;
+    --secondary-foreground: 45 80% 75%;
+    
+    /* Muted - Soft neutral */
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    
+    /* Accent - Warm gold accent */
+    --accent: 45 80% 50%;
+    --accent-foreground: 0 0% 5%;
+    
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Success */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    
+    /* Warning */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 5%;
+    
+    /* Border */
+    --border: 45 20% 18%;
+    
+    /* Input */
+    --input: 0 0% 12%;
+    
+    /* Ring */
+    --ring: 45 93% 47%;
+    
+    /* Chart colors */
+    --chart-1: 45 93% 47%;
+    --chart-2: 45 60% 35%;
+    --chart-3: 0 0% 50%;
+    --chart-4: 142 71% 45%;
+    --chart-5: 0 72% 51%;
+    
+    /* Radius */
+    --radius: 0.75rem;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 45 20% 95%;
+    --sidebar-primary: 45 93% 47%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 45 30% 15%;
+    --sidebar-accent-foreground: 45 80% 75%;
+    --sidebar-border: 45 20% 18%;
+    --sidebar-ring: 45 93% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: linear-gradient(135deg, hsl(0 0% 4%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 4%) 100%);
+    min-height: 100vh;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+}
+
+/* Gold text gradient effect */
+.text-gold-gradient {
+  background: linear-gradient(135deg, hsl(45 93% 47%), hsl(45 100% 60%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold background gradient */
+.bg-gradient-gold {
+  background: linear-gradient(135deg, hsl(45 93% 47%), hsl(45 100% 60%));
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 30px -5px hsla(45, 93%, 47%, 0.25);
+}
+
+/* Button gold glow on hover */
+.btn-gold-glow:hover {
+  box-shadow: 0 10px 50px -10px hsla(45, 93%, 47%, 0.35);
+}
+
+/* Grid pattern overlay */
+.grid-pattern {
+  background-image: 
+    linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+/* Status badges */
+.status-pending {
+  background: hsl(var(--warning) / 0.15);
+  color: hsl(var(--warning));
+  border: 1px solid hsl(var(--warning) / 0.3);
+}
+
+.status-approved {
+  background: hsl(var(--success) / 0.15);
+  color: hsl(var(--success));
+  border: 1px solid hsl(var(--success) / 0.3);
+}
+
+.status-rejected {
+  background: hsl(var(--destructive) / 0.15);
+  color: hsl(var(--destructive));
+  border: 1px solid hsl(var(--destructive) / 0.3);
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
+}
