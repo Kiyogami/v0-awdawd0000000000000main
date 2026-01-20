@@ -8,7 +8,7 @@ export function HeroSection() {
       {/* Background */}
       <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1646644431825-e5171c8cba53?w=1600" 
+          src="/hero-bg.jpg" 
           alt="Hero background"
           className="w-full h-full object-cover opacity-30"
         />
